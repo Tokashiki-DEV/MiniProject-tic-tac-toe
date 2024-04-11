@@ -32,9 +32,25 @@ function winCondition(){
 
     switch(column){
         case 'left':
-        if(buttons[i].innerText === 'X'){
+        if(buttons[0,3,6].innerText === 'X'){
             console.log(buttons[i].innerText + ' Ganhou')
-        }else if (buttons[i].innerText === 'O'){
+        }else if (buttons[0,3,6].innerText === 'O'){
+            console.log(buttons[i].innerText + ' Ganhou')
+        }
+        break
+
+        case 'middle':
+        if(buttons[1,4,7].innerText === 'X'){
+            console.log(buttons[i].innerText + ' Ganhou')
+        }else if (buttons[1,4,7].innerText === 'O'){
+            console.log(buttons[i].innerText + ' Ganhou')
+        }
+        break
+
+        case 'right':
+        if(buttons[2,5,8].innerText === 'X'){
+            console.log(buttons[i].innerText + ' Ganhou')
+        }else if (buttons[2,5,8].innerText === 'O'){
             console.log(buttons[i].innerText + ' Ganhou')
         }
         break
