@@ -29,20 +29,28 @@ function game(){
 function update(){
     switch(winCondition()){
         case undefined:
+            if(i === buttons.length - 1 ){
+                buttons.forEach(function(){
+                    buttons[j].disabled = true
+                    j++
+                })
+                player.innerText = 'Empate !'
+            }
+            i++
             break
         case 'X Ganhou':
             buttons.forEach(function(){
                 buttons[j].disabled = true
                 j++
             })
-            player.innerText = player.dataset.player + ' ganhou'
+            player.innerText = player.dataset.player + ' ganhou !'
             break
         case 'O Ganhou':
             buttons.forEach(function(){
                 buttons[j].disabled = true
                 j++
             })
-            player.innerText = player.dataset.player + ' ganhou'
+            player.innerText = player.dataset.player + ' ganhou !'
             break
     }
 }
@@ -62,12 +70,17 @@ function playerpressed(){
 
 function winCondition(){
 
-  
+    // buttons.forEach(function(value,index){
+    //     if(buttons[index].innerText != ''){
+    //         console.log('teste')
+    //     }
+    // })
+
     switch(column){
         case 'left':
         if(buttons[0].innerText === 'X' && buttons[3].innerText === 'X' && buttons[6].innerText === 'X'){
-            
-            return ('X Ganhou')
+
+            return 'X Ganhou'
 
         }else if (buttons[0].innerText === 'O' && buttons[3].innerText === 'O' && buttons[6].innerText === 'O'){
             return 'O Ganhou'
@@ -145,5 +158,4 @@ function winCondition(){
             
         }
     }
-    i++ 
 }
