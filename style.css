@@ -89,3 +89,12 @@ h1#player{
     border-width: 0px;
     background-color: transparent;
   }
+
+#restart{
+    display: flex;
+    margin-left: 20px;
+    width: 60px;
+    height: 20px;
+    align-content: center;
+    justify-content: center;
+}

@@ -12,7 +12,21 @@ player.dataset.player = player1
 let player2 = prompt("Digite o nome do jogador 2: ")
 player.innerText = 'Turno do ' + player2
 
-game()
+if(player1 && player2){
+    game()
+}
+
+function restart(){
+    if(player1 && player2){
+        game()
+        buttons.forEach(function(value,index){
+            buttons[index].disabled = false
+            buttons[index].innerText = ''
+        })
+        i = 0
+    }
+}
+
 function game(){
 
 
@@ -30,25 +44,25 @@ function update(){
     switch(winCondition()){
         case undefined:
             if(i === buttons.length - 1 ){
-                buttons.forEach(function(){
-                    buttons[j].disabled = true
-                    j++
+                buttons.forEach(function(value,index){
+                    buttons[index].disabled = true
+                    
                 })
                 player.innerText = 'Empate !'
             }
             i++
             break
         case 'X Ganhou':
-            buttons.forEach(function(){
-                buttons[j].disabled = true
-                j++
+            buttons.forEach(function(value,index){
+                buttons[index].disabled = true
+                
             })
             player.innerText = player.dataset.player + ' ganhou !'
             break
         case 'O Ganhou':
-            buttons.forEach(function(){
-                buttons[j].disabled = true
-                j++
+            buttons.forEach(function(value,index){
+                buttons[index].disabled = true
+        
             })
             player.innerText = player.dataset.player + ' ganhou !'
             break
@@ -70,11 +84,6 @@ function playerpressed(){
 
 function winCondition(){
 
-    // buttons.forEach(function(value,index){
-    //     if(buttons[index].innerText != ''){
-    //         console.log('teste')
-    //     }
-    // })
 
     switch(column){
         case 'left':
